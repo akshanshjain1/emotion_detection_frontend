@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+@keyframes movingLight {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.animate-text-glow {
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(
+    to right, 
+    #ffffff 20%, 
+    #eefa04 40%, 
+    #878702 50%, 
+    #aaff00 60%, 
+    #ffffff 80%
+  );
+  background-size: 200% auto;
+  animation: movingLight 3s linear infinite;
+}
