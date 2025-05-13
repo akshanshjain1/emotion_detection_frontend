@@ -181,7 +181,7 @@ export default function EmotionDetection({ menu = false, setmenu }) {
 
     try {
       const response = await axios.post(
-        "https://emotiondetection-production.up.railway.app/predict/",
+        "https://emotion-detection-87as.onrender.com/predict/",
         formData,
         {
           headers: {
