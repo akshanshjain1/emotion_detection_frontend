@@ -647,11 +647,8 @@ function createEmptyAnalysisError(
   const transcriptionFailure = extractedErrors.some((message) =>
     message.toLowerCase().includes("transcript confidence")
   );
-  const languageHint = transcriptionLanguage
-    ? " Try switching the speech language if the recording is in another language or mixed speech."
-    : " Try setting the speech language before retrying if you're speaking Hindi, Hinglish, or another non-English language.";
   const serviceHint = transcriptionFailure
-    ? "We couldn't confidently recognize spoken words in this audio."
+    ? "Cannot recognize audio. Try again."
     : numErrors > 0 || extractedErrors.length > 0
       ? "The audio was uploaded, but no usable speech emotion result could be produced."
       : "No usable speech emotion result could be produced from this audio.";
@@ -665,7 +662,7 @@ function createEmptyAnalysisError(
     transcriptionLanguage,
   });
   const error = new Error(
-    `${serviceHint}${transcriptionFailure ? languageHint : formatHint}${segmentationHint}`
+    `${serviceHint}${transcriptionFailure ? "" : formatHint}${segmentationHint}`
   );
   error.code = "EMPTY_ANALYSIS";
 
